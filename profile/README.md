@@ -1,5 +1,3 @@
-<img src="https://phpmath.github.io/assets/favicon.svg" width="72" height="72" alt="phpmath">
-
 # phpmath
 
 **Precise math for modern PHP.** Immutable, fully tested libraries that follow one standard, so they all work the same way.
