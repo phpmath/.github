@@ -4,7 +4,7 @@
 
 **Precise math for modern PHP.** Immutable, fully tested libraries that follow one standard, so they all work the same way.
 
-Website and documentation: **https://phpmath.github.io**
+Website and documentation: [phpmath.github.io](https://phpmath.github.io)
 
 ## Libraries
 
