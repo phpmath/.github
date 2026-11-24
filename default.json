@@ -1,0 +1,39 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "enabledManagers": ["composer", "github-actions"],
+  "timezone": "Europe/Amsterdam",
+  "schedule": ["before 6am on monday"],
+  "minimumReleaseAge": "3 days",
+  "prConcurrentLimit": 5,
+  "dependencyDashboard": true,
+  "rangeStrategy": "widen",
+  "packageRules": [
+    {
+      "description": "Never touch the PHP version or extension constraints",
+      "matchManagers": ["composer"],
+      "matchPackageNames": ["php", "/^ext-/"],
+      "enabled": false
+    },
+    {
+      "description": "Dev dependencies are not part of the public contract, keep them on the latest version",
+      "matchManagers": ["composer"],
+      "matchDepTypes": ["require-dev"],
+      "rangeStrategy": "bump"
+    },
+    {
+      "description": "Group the shared dev tooling into one pull request",
+      "matchManagers": ["composer"],
+      "matchDepTypes": ["require-dev"],
+      "groupName": "dev tooling",
+      "automerge": true
+    },
+    {
+      "description": "Automerge minor and patch updates of GitHub Actions",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "github actions",
+      "automerge": true
+    }
+  ]
+}
